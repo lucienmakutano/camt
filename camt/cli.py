@@ -27,7 +27,7 @@ def compress(
 
     _copy(files, dest_dir)
 
-    archive(dest_dir, src_dir, _format=format)
+    archive(dest_dir, dest_dir, _format=format)
 
 
 def _version_callback(value: bool) -> None:
