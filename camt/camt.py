@@ -11,6 +11,7 @@ def get_labeled_files(path: str) -> list:
 
     for root, _, filenames in os.walk(path, topdown=True):
         filenames.sort()
+
         for index, filename in enumerate(filenames):
             if filename.endswith(".xml"):
                 img = os.path.join(root, filenames[index - 1])
@@ -26,5 +27,12 @@ def _copy(sources: Iterable[Tuple[str]], dst: str):
         copy2(src2, dst)
 
 
-def archive(dest_dir: str, src, _format: str = 'zip'):
+def archive(dest_dir: str, src: str, _format: str = 'zip') -> None:
+    """
+    Creates a compressed file in the format of zip, tar, etc.
+    :param dest_dir:
+    :param src:
+    :param _format:
+    :return:
+    """
     make_archive(dest_dir, _format, src)
